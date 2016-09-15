@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+	<title>Cadastro de Cursos</title>
+	<h:outputStylesheet library="css" name="estilos.css"></h:outputStylesheet>
+</h:head>
+
+<h:body>
+	<div class="masterBackground">
+		<h:form>
+			<ui:include src="/template/navbar.xhtml"/>
+		</h:form>
+		<div class="masterConteudo">
+			<h1 class="h1conf">Cadastro de Cursos</h1>
+			<h:form>
+				<h:outputText value="Nome" />
+				<br />
+				<h:inputText value="#{cursosBean.cursos.nome}" />
+				<br />
+				<h:outputText value="Escolas" />
+				<br />
+		  		<h:selectManyListbox value="#{cursosBean.escolasArray}">
+		   			<f:selectItems value="#{cursosBean.listaEscolas}" var="f"
+		   			itemLabel="#{f.nomeEscola}" itemValue="#{f.idEscola}" />
+		   		</h:selectManyListbox>
+				<br />
+				<small>*Use o Ctrl para escolher mais de uma escola</small>
+				<br />
+				<h:commandButton value="Incluir" action="#{cursosBean.incluirCursos()}" />
+			</h:form>
+		</div>
+	</div>
+	<ui:include src="/template/rodape.xhtml"/>
+</h:body>
+</html>

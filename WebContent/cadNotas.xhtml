@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+	<title>Cadastro de Administradores</title>
+	<h:outputStylesheet library="css" name="estilos.css"></h:outputStylesheet>
+</h:head>
+
+<h:body>
+	<div class="masterBackground">
+		<h:form>
+			<ui:include src="/template/navbar.xhtml"/>
+		</h:form>
+		<div class="masterConteudo">
+			<h1 class="h1conf">Cadastro de Notas</h1>
+			<h:form>
+				<h:outputText value="Cpf: #{notasBean.alunos.cpf}" />
+				<br />
+				<h:outputText value="Nome: #{notasBean.alunos.nome}" />
+				<br />
+				<br />
+				<h:outputText value="Nota Projeto 1 (30%)" />
+				<br />
+		 		<h:inputText value="#{notasBean.notas.notaP1}" />
+				<br />
+				<h:outputText value="Nota Atividade Prática (30%)" />
+				<br />
+				<h:inputText value="#{notasBean.notas.notaAp}"/>
+				<br />
+				<h:outputText value="Nota Projeto 2 (40%)" />
+				<br />
+				<h:inputText value="#{notasBean.notas.notaP2}" />
+				<br />
+				<h:commandButton value="Salvar" action="#{notasBean.salvarNotas}"/>
+			</h:form>
+		</div>
+	</div>
+	<ui:include src="/template/rodape.xhtml"/>
+</h:body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+<h:body>
+	 <ui:composition>
+		<ul class="navul">
+		  <li class="navli"><h:commandLink value="Menu" action="index" /></li>
+		  <li class="dropdown">
+		  	<a href="#" class="dropbtn">Cadastrar</a>
+		  	<div class="dropdown-content">
+		  		<h:commandLink value="Cadastro de Escolas" action="cadEscolas" />
+		  		<h:commandLink value="Cadastro de Professores" action="#{usuariosBean.podeCadastrarProfessores()}" />
+		  		<h:commandLink value="Cadastro de Cursos" action="#{usuariosBean.podeCadastrarCursos()}" />
+		  		<h:commandLink value="Cadastro de Alunos" action="#{usuariosBean.podeCadastrarAlunos()}" />
+		  		<h:commandLink value="Cadastro de Disciplinas" action="#{usuariosBean.podeCadastrarDisciplinas()}" />
+		  		<h:commandLink value="Atribuir Aula" action="#{usuariosBean.podeAtribuirAula()}"/>
+		  	</div>
+		  </li>
+		  <li class="navli"><h:commandLink value="Cadastro Administradores" action="cadAdministradores" /></li>
+		  <li class="navli"><h:commandLink value="Sair" action="#{usuariosBean.sair()}" /></li>
+		</ul>
+	 </ui:composition>
+</h:body>
+</html>
+		

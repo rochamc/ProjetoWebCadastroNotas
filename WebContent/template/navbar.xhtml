@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+<h:body>
+	<ui:composition>
+		<h:panelGroup id="wrapperPanel">
+			<h:panelGroup id="tableRenderPanelAlunos"
+				rendered="#{usuariosBean.renderizaAdministradores}">
+				<ui:include src="navbarBody.xhtml" />
+			</h:panelGroup>
+			<h:panelGroup id="tableRenderPanelProfessores"
+				rendered="#{usuariosBean.renderizaAlunos}">
+				<ui:include src="navbarBodyAlunos.xhtml" />
+			</h:panelGroup>
+			<h:panelGroup id="tableRenderPanelAdministradores"
+				rendered="#{usuariosBean.renderizaProfessores}">
+				<ui:include src="navbarBodyProfessores.xhtml" />
+			</h:panelGroup>
+		</h:panelGroup>
+	</ui:composition>
+</h:body>
+</html>

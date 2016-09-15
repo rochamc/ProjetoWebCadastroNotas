@@ -1,0 +1,31 @@
+<!DOCTYPE html >
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head>
+	<title>Login</title>
+	<h:outputStylesheet library="css" name="estilos.css"></h:outputStylesheet>
+</h:head>
+
+<h:body>
+	<div class="masterBackground">
+		<div class="masterConteudo">
+			<h1 class="h1conf">Login</h1>
+			<h:form>
+				<h:outputText value="Usuário" />
+				<br />
+				<h:inputText value="#{usuariosBean.usuarios.nome}" />
+				<br />
+				<h:outputText value="Senha" />
+				<br />
+				<h:inputSecret value="#{usuariosBean.usuarios.senha}" />
+				<br />
+				<h:commandButton value="Validar" action="#{usuariosBean.validarUsuario()}" />
+			</h:form>
+		</div>
+	</div>
+	<ui:include src="/template/rodape.xhtml"/>
+</h:body>
+</html>

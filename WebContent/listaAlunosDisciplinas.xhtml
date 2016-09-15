@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<title>Cadastro de Cursos</title>
+	<h:outputStylesheet library="css" name="estilos.css"></h:outputStylesheet>
+</h:head>
+
+<h:body>
+	<div class="masterBackground">
+		<h:form>
+			<ui:include src="/template/navbar.xhtml" />
+		</h:form>
+		<div class="masterConteudo">
+			<h:form>
+				<h:messages autoUpdate="true" />
+				<h:outputText value="Curso: " />
+				<p:selectOneMenu id="smcurso" value="#{listaAlunosDisciplinasBean.codCurso}">
+					<f:selectItem itemValue="#{null}" itemLabel="--Selecione--" />
+					<f:selectItems value="#{listaAlunosDisciplinasBean.listaCursos}" var="c"
+						itemLabel="#{c.nome}" itemValue="#{c.id}" />
+					<f:ajax event="change" execute="smcurso" render="smdisciplina" />
+				</p:selectOneMenu>
+	 			<h:outputText value=" Disciplina: " />
+				<p:selectOneMenu id="smdisciplina" value="#{listaAlunosDisciplinasBean.codDisciplina}">
+					<f:selectItem itemValue="#{null}" itemLabel="--Selecione--" />
+					<f:selectItems value="#{listaAlunosDisciplinasBean.listaDisciplinas}" var="d"
+						itemLabel="#{d.nome}" itemValue="#{d.id}" />
+					<f:ajax event="change" execute="smdisciplina" render="smalunos" />
+				<!-- <f:ajax event="change" execute="smdisciplina" render="smalunos" /> -->	
+				</p:selectOneMenu>
+				<p:panel id="smalunos" header="Lista de Alunos por Disciplina">
+					<p:dataTable var="alunos" value="#{listaAlunosDisciplinasBean.listaAlunos}">
+						<p:column headerText="CPF">
+							<h:outputText value="#{alunos.cpf}" />
+						</p:column>
+	
+						<p:column headerText="Nome">
+							<h:outputText value="#{alunos.nome}" />
+						</p:column>
+	
+						<p:column headerText="">
+							<h:commandLink value="Editar Nota" action="#{listaAlunosDisciplinasBean.editarNota(alunos.cpf)}" />
+						</p:column>
+					</p:dataTable> 
+				</p:panel>
+			</h:form>
+		</div>
+	</div>
+	<ui:include src="/template/rodape.xhtml" />
+</h:body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+	<title>Cadastro de Alunos</title>
+	<h:outputStylesheet library="css" name="estilos.css"></h:outputStylesheet>
+</h:head>
+
+<h:body>
+	<div class="masterBackground">
+		<h:form>
+			<ui:include src="/template/navbar.xhtml"/>
+		</h:form>
+		<div class="masterConteudo">
+			<h1 class="h1conf">Cadastro de Alunos</h1>
+			<h:form>
+				<h:outputText value="Cpf" />
+				<br />
+				<h:inputText value="#{alunosBean.alunos.cpf}" />
+				<br />
+				<h:outputText value="Nome" />
+				<br />
+				<h:inputText value="#{alunosBean.alunos.nome}" />
+				<br />
+				<h:outputText value="Endereço" />
+				<br />
+				<h:inputText value="#{alunosBean.alunos.endereco}" />
+				<br />
+				<h:outputText value="Nascimento" />
+				<br />
+				<h:inputText value="#{alunosBean.alunos.nascimento}">
+					<f:convertDateTime pattern="dd/MM/yyyy" />
+				</h:inputText>
+				<br />
+				<h:outputText value="Sexo" />
+				<br />
+				<h:inputText value="#{alunosBean.alunos.sexo}" />
+				<br />
+				<h:outputText value="Telefone" />
+				<br />
+				<h:inputText value="#{alunosBean.alunos.telefone}" />
+				<br />
+				<h:outputText value="Usuário" />
+				<br />
+				<h:inputText value="#{alunosBean.alunos.usuario}" />
+				<br />
+				<h:outputText value="Senha" />
+				<br />
+				<h:inputText value="#{alunosBean.alunos.senha}" />
+				<br />
+				<h:outputText value="Cursos" />
+				<br />
+		  		<h:selectManyListbox value="#{alunosBean.cursosArray}">
+		   			<f:selectItems value="#{alunosBean.listaCursos}" var="f"
+		   			itemLabel="#{f.nomeCurso}" itemValue="#{f.idCurso}" />
+		   		</h:selectManyListbox>
+				<br />
+				<small>*Use o Ctrl para escolher mais de um curso</small>
+				<br />
+				<h:commandButton value="Incluir" action="#{alunosBean.incluirAlunos()}"/>
+			</h:form>
+		</div>
+	</div>
+	<ui:include src="/template/rodape.xhtml"/>
+</h:body>
+</html>

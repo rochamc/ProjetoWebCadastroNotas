@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+	<title>Cadastro de Disciplinas</title>
+	<h:outputStylesheet library="css" name="estilos.css"></h:outputStylesheet>
+</h:head>
+
+<h:body>
+	<div class="masterBackground">
+		<h:form>
+			<ui:include src="/template/navbar.xhtml"/>
+		</h:form>
+		<div class="masterConteudo">
+			<h1 class="h1conf">Cadastro de Disciplinas</h1>
+			<h:form>
+				<h:outputText value="Nome" />
+				<br />
+				<h:inputText value="#{disciplinasBean.disciplinas.nome}" />
+				<br />
+				<h:commandButton value="Incluir" action="#{disciplinasBean.incluirDisciplinas()}"/>
+			</h:form>
+		</div>
+	</div>
+	<ui:include src="/template/rodape.xhtml"/>
+</h:body>
+</html>
